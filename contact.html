@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact and Tour Prices</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html" class="active" aria-current="page">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Plan Your Altai Journey</h1>
+        <section>
+            <h2>Tour price information</h2>
+            <table>
+                <caption>Tour options and prices per person</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Tour type</th>
+                        <th scope="col">Maximum group size</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Price per person</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Standard</td>
+                        <td>8 persons</td>
+                        <td>7 days</td>
+                        <td>$650</td>
+                    </tr>
+                    <tr>
+                        <td>VIP</td>
+                        <td>4 persons</td>
+                        <td>7 days</td>
+                        <td>$1,200</td>
+                    </tr>
+                    <tr>
+                        <td>Solo</td>
+                        <td>1 person</td>
+                        <td>7 days</td>
+                        <td>$4,500</td>
+                    </tr>
+                    <tr>
+                        <td>Family</td>
+                        <td>6 persons</td>
+                        <td>10 days</td>
+                        <td>$900</td>
+                    </tr>
+                    <tr>
+                        <td>Custom</td>
+                        <td>Based on request</td>
+                        <td>Flexible</td>
+                        <td>Contact us</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="3">Tour price currency</th>
+                        <td>USD</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <form >
+            <fieldset>
+                <legend>Traveler information</legend>
+                <label for="name">Full name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" maxlength="80" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="start-date">Starting date:</label>
+                <input type="date" id="start-date" name="start-date" required>
+
+                <label for="guests">Number of guests:</label>
+                <input type="number" id="guests" name="guests" min="1" max="8" required>
+
+                <p>Type of tour:</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="tour" value="Standard" required> Standard</label>
+                    <label><input type="radio" name="tour" value="VIP"> VIP</label>
+                    <label><input type="radio" name="tour" value="Solo"> Solo</label>
+                    <label><input type="radio" name="tour" value="Custom"> Custom</label>
+                </div>
+
+                <label for="message">Questions or special requests:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us about your plans"></textarea>
+            </fieldset>
+            <button type="submit">Send inquiry</button>
+        </form>
+    </main>
+    <footer>
+        <p>2026 Altai Brothers Base Camp</p>
+    </footer>
+</body>
+</html>

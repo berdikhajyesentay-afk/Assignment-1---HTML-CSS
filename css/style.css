@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3e8d0;
+    color: #24302b;
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    margin: 0;
+}
+
+header {
+    background-color: rgb(38, 77, 58);
+    padding: 1rem 5%;
+    text-align: center;
+}
+
+nav a {
+    border-bottom: 2px solid transparent;
+    color: white;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 0 0.75rem;
+    padding: 0.35rem 0.5rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: hsl(24, 70%, 42%);
+    text-decoration: underline;
+}
+
+nav a.active {
+    border-color: white;
+}
+
+main {
+    margin: 0 auto;
+    max-width: 70rem;
+    min-height: 70vh;
+    padding: 2rem 5%;
+}
+
+h1, h2 {
+    color: rgb(38, 77, 58);
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.4rem;
+}
+
+#site-title {
+    color: hsl(24, 70%, 42%);
+}
+
+section {
+    margin: 2rem 0;
+}
+
+.image-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figure img,
+.image-grid img {
+    border: 3px solid rgb(38, 77, 58);
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 100%;
+}
+
+figcaption,
+.quote-source {
+    color: rgb(38, 77, 58);
+    font-style: italic;
+}
+
+blockquote {
+    border-left: 5px solid hsl(24, 70%, 42%);
+    margin: 2rem 0 0;
+    padding-left: 1rem;
+}
+
+.media-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+video {
+    display: block;
+    max-width: 100%;
+    width: 42rem;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+    width: 100%;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+th, td {
+    border: 1px solid rgb(38, 77, 58);
+    padding: 0.7rem;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(38, 77, 58);
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(38, 77, 58, 0.1);
+}
+
+form {
+    max-width: 42rem;
+}
+
+fieldset {
+    border: 2px solid rgb(38, 77, 58);
+    padding: 1.25rem;
+}
+
+legend {
+    color: rgb(38, 77, 58);
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+label,
+input:not([type="radio"]),
+textarea {
+    display: block;
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+input,
+textarea {
+    border: 1px solid rgb(38, 77, 58);
+    border-radius: 4px;
+    font: inherit;
+    padding: 0.6rem;
+}
+
+input:focus,
+textarea:focus {
+    border-color: hsl(24, 70%, 42%);
+    outline: 3px solid rgba(181, 91, 32, 0.3);
+}
+
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.radio-group label {
+    align-items: center;
+    display: flex;
+    gap: 0.35rem;
+    margin-top: 0;
+    width: auto;
+}
+
+button {
+    background-color: hsl(24, 70%, 42%);
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font: bold 1rem Arial, sans-serif;
+    margin-top: 1rem;
+    padding: 0.7rem 1.25rem;
+}
+
+button:hover {
+    background-color: rgb(38, 77, 58);
+}
+
+footer {
+    background-color: rgb(38, 77, 58);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 40rem) {
+    .image-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
