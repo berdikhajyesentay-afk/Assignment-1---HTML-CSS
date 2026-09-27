@@ -1,0 +1,27 @@
+/* home.css - links to the three tasks */
+
+.task-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.task-link {
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    border-top: 5px solid var(--rust);
+    box-shadow: var(--shadow);
+    color: var(--ink);
+    flex: 1 1 15rem;
+    padding: var(--space-4);
+    text-decoration: none;
+}
+
+.task-link:hover {
+    border-top-color: var(--green);
+}
+
+.task-link p {
+    margin: 0;
+}

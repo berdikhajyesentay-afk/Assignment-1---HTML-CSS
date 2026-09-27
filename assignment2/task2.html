@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - Component library</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="site-header__brand" href="index.html">Altai Brothers</a>
+        <nav class="site-header__links">
+            <a href="index.html">Home</a>
+            <a href="task1.html">Task 1</a>
+            <a href="task2.html" class="active">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1>Task 2. Component library</h1>
+        <p class="page__intro">Five components built only with Flexbox. Each one is shown with content it was not designed for.</p>
+
+        <!-- (1) NAVIGATION BAR -->
+        <section class="demo">
+            <h2 class="demo__title">1. Navigation bar</h2>
+
+            <nav class="navbar">
+                <a class="navbar__logo" href="#">Altai Brothers</a>
+                <ul class="navbar__links">
+                    <li><a href="#">Tours</a></li>
+                    <li><a href="#">Yurts</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="#">Log in</a>
+                    <a class="btn" href="#">Book now</a>
+                </div>
+            </nav>
+
+            <p class="demo__note">Same navbar with very long links - the buttons stay at the right edge:</p>
+
+            <nav class="navbar">
+                <a class="navbar__logo" href="#">Altai Brothers</a>
+                <ul class="navbar__links">
+                    <li><a href="#">Horse riding tours in the western valleys</a></li>
+                    <li><a href="#">Traditional Kazakh yurts and family stays</a></li>
+                    <li><a href="#">Eagle hunters festival</a></li>
+                    <li><a href="#">Frequently asked questions</a></li>
+                </ul>
+                <div class="navbar__actions">
+                    <a class="btn btn--ghost" href="#">Log in</a>
+                    <a class="btn" href="#">Book now</a>
+                </div>
+            </nav>
+        </section>
+
+        <!-- (2) CARDS -->
+        <section class="demo">
+            <h2 class="demo__title">2. Cards</h2>
+
+            <div class="cards">
+                <article class="card">
+                    <h3 class="card__title">River valley walk</h3>
+                    <p class="card__text">An easy day along the river.</p>
+                    <a class="btn" href="#">Read more</a>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Five days in the Altai mountains</h3>
+                    <p class="card__text">Ride with a local family from one summer camp to the next, sleep in a yurt every night, help with the evening milking and listen to old stories by the stove. The route changes with the weather and the herds, so no two trips are the same.</p>
+                    <a class="btn" href="#">Read more</a>
+                </article>
+                <article class="card">
+                    <h3 class="card__title">Eagle festival</h3>
+                    <p class="card__text">Watch the eagle hunters of Bayan-Ulgii compete in October.</p>
+                    <a class="btn" href="#">Read more</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- (3) PAGINATION -->
+        <section class="demo">
+            <h2 class="demo__title">3. Pagination</h2>
+
+            <nav class="pagination">
+                <div class="pagination__controls">
+                    <a class="pagination__arrow" href="#">&larr; Prev</a>
+                    <ol class="pagination__pages">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#" class="current">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><span>&hellip;</span></li>
+                        <li><a href="#">25</a></li>
+                    </ol>
+                    <a class="pagination__arrow" href="#">Next &rarr;</a>
+                </div>
+                <p class="pagination__count">Showing 21-30 of 248 tours</p>
+            </nav>
+        </section>
+
+        <!-- (4) COMMENTS -->
+        <section class="demo">
+            <h2 class="demo__title">4. Comments</h2>
+
+            <div class="comment">
+                <span class="comment__avatar">AY</span>
+                <div class="comment__body">
+                    <p class="comment__meta"><strong>Aigerim Y.</strong> <span>2 days ago</span></p>
+                    <p>We stayed three nights with the family and it was the best part of our trip. The food was simple and delicious, the horses were calm, and the kids taught us how to play asyk. The text of this comment is long on purpose, so you can see that it keeps wrapping beside the avatar and never slides under it, no matter how many lines it takes.</p>
+                </div>
+            </div>
+
+            <div class="comment comment--reply">
+                <span class="comment__avatar">BY</span>
+                <div class="comment__body">
+                    <p class="comment__meta"><strong>Byerdikhajy (host)</strong> <span>1 day ago</span></p>
+                    <p>Thank you! Photos are here: https://example.com/altai-brothers/photos/summer-2026/family-stay-gallery-full-size</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- (5) PRICING -->
+        <section class="demo">
+            <h2 class="demo__title">5. Pricing</h2>
+
+            <div class="pricing">
+                <article class="plan">
+                    <h3 class="plan__name">Day trip</h3>
+                    <p class="plan__price">$60</p>
+                    <ul class="plan__features">
+                        <li>Guide for one day</li>
+                        <li>Lunch in a yurt</li>
+                        <li>Tea with the family</li>
+                    </ul>
+                    <a class="btn btn--outline" href="#">Choose</a>
+                </article>
+                <article class="plan plan--featured">
+                    <p class="plan__badge">Recommended</p>
+                    <h3 class="plan__name">Weekend</h3>
+                    <p class="plan__price">$180</p>
+                    <ul class="plan__features">
+                        <li>Two nights in a yurt</li>
+                        <li>All meals</li>
+                        <li>Horse riding</li>
+                    </ul>
+                    <a class="btn" href="#">Choose</a>
+                </article>
+                <article class="plan">
+                    <h3 class="plan__name">Full week</h3>
+                    <p class="plan__price">$490</p>
+                    <ul class="plan__features">
+                        <li>Seven nights</li>
+                        <li>All meals and transfers</li>
+                        <li>Eagle hunter visit</li>
+                    </ul>
+                    <a class="btn btn--outline" href="#">Choose</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Byerdikhajy Yesyentai</p>
+    </footer>
+</body>
+</html>

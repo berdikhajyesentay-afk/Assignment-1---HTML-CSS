@@ -1,0 +1,45 @@
+/* ==========================================================
+   task1.css - geometric composition with ONE CSS Grid
+   ========================================================== */
+
+/* the page: header on top, the stage takes the rest of the screen */
+.task1 {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.stage {
+    display: grid;
+    padding: 3vmin;
+    place-items: center;
+}
+
+/* 6 x 6 grid. The black background shows through the gap
+   and the padding, so those are the black lines. */
+.composition {
+    aspect-ratio: 1 / 1;
+    background-color: #1d1d1d;
+    display: grid;
+    gap: 1.6vmin;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    padding: 1.6vmin;
+    /* square, grows with the window, never taller than the screen
+       (80vh leaves room for the header) */
+    width: min(90vw, 80vh);
+}
+
+/* grid-area: row-start / column-start / row-end / column-end */
+.blue   { grid-area: 1 / 1 / 4 / 3; }  /* 2 columns x 3 rows */
+.top    { grid-area: 1 / 3 / 2 / 7; }  /* 4 columns x 1 row  */
+.yellow { grid-area: 2 / 3 / 4 / 5; }  /* 2 columns x 2 rows */
+.right  { grid-area: 2 / 5 / 5 / 7; }  /* 2 columns x 3 rows */
+.red    { grid-area: 4 / 1 / 7 / 4; }  /* 3 columns x 3 rows */
+.bottom { grid-area: 5 / 5 / 7 / 7; }  /* 2 columns x 2 rows */
+/* column 4, rows 4-6 stays empty: the black background is visible there */
+
+.blue   { background-color: #3d6ddb; }
+.yellow { background-color: #ebbd00; }
+.red    { background-color: #c12626; }
+.white  { background-color: #f1f1f1; }

@@ -1,0 +1,290 @@
+/* ==========================================================
+   components.css - Task 2, Flexbox only
+   (no grid, no float, no fixed widths/heights except the avatar)
+   ========================================================== */
+
+.demo {
+    margin-top: var(--space-5);
+}
+
+.demo__title {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: var(--space-2);
+}
+
+.demo__note {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: var(--space-3) 0 var(--space-2);
+}
+
+/* lists used as menus: remove bullets */
+.navbar__links,
+.pagination__pages,
+.plan__features {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* outline button for light backgrounds */
+.btn--outline {
+    background-color: transparent;
+    color: var(--rust);
+}
+
+.btn--outline:hover {
+    color: white;
+}
+
+/* ---------- 1. Navigation bar ---------- */
+
+.navbar {
+    align-items: center;
+    background-color: var(--green);
+    border-radius: var(--radius);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+}
+
+.navbar__logo {
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* flex-basis 0: the links take only the free space and wrap inside
+   themselves, so they never push the buttons off the line */
+.navbar__links {
+    display: flex;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+}
+
+.navbar__links a {
+    color: white;
+    text-decoration: none;
+}
+
+.navbar__links a:hover {
+    text-decoration: underline;
+}
+
+/* margin-left: auto pushes the buttons to the right edge,
+   even when they wrap to a new line */
+.navbar__actions {
+    display: flex;
+    gap: var(--space-2);
+    margin-left: auto;
+}
+
+/* ---------- 2. Cards ---------- */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+/* default align-items: stretch makes the cards in a row equally tall */
+.card {
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex: 1 1 15rem;
+    flex-direction: column;
+    padding: var(--space-4);
+}
+
+/* the text grows and pushes the button to the bottom */
+.card__text {
+    flex-grow: 1;
+}
+
+.card .btn {
+    align-self: flex-start;
+}
+
+/* ---------- 3. Pagination ---------- */
+
+.pagination {
+    align-items: center;
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+}
+
+/* an empty flex item on the left that is as wide as the count
+   on the right, so the controls end up in the real center */
+.pagination::before {
+    content: "";
+    flex: 1 1 0;
+}
+
+.pagination__controls {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+}
+
+.pagination__pages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    justify-content: center;
+}
+
+.pagination__pages a,
+.pagination__pages span,
+.pagination__arrow {
+    border-radius: var(--radius);
+    color: var(--green);
+    display: block;
+    font-weight: bold;
+    padding: var(--space-1) var(--space-2);
+    text-decoration: none;
+}
+
+.pagination__pages a:hover,
+.pagination__arrow:hover {
+    background-color: var(--green-light);
+}
+
+.pagination__pages .current {
+    background-color: var(--green);
+    color: white;
+}
+
+.pagination__count {
+    color: var(--muted);
+    flex: 1 1 0;
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: right;
+}
+
+/* ---------- 4. Comments ---------- */
+
+.comment {
+    align-items: flex-start;
+    background-color: var(--paper);
+    border-radius: var(--radius);
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+}
+
+.comment--reply {
+    margin-left: var(--space-5);
+}
+
+/* the avatar keeps its own size and never shrinks */
+.comment__avatar {
+    align-items: center;
+    background-color: var(--rust);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    flex-shrink: 0;
+    font-weight: bold;
+    height: 3rem;
+    justify-content: center;
+    width: 3rem;
+}
+
+/* the text column takes the rest; min-width: 0 and overflow-wrap
+   let even a long link break instead of pushing out of the box */
+.comment__body {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.comment__body p:last-child {
+    margin-bottom: 0;
+}
+
+.comment__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+}
+
+.comment__meta span {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ---------- 5. Pricing ---------- */
+
+/* align-items: center - the plans keep their own height,
+   so the featured one (with more padding) is taller */
+.pricing {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.plan {
+    align-items: center;
+    background-color: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    display: flex;
+    flex: 1 1 14rem;
+    flex-direction: column;
+    padding: var(--space-4);
+    text-align: center;
+}
+
+.plan--featured {
+    background-color: var(--green);
+    border-color: var(--green);
+    box-shadow: var(--shadow);
+    color: white;
+    padding-block: var(--space-5);
+}
+
+.plan--featured .plan__name {
+    color: white;
+}
+
+.plan__badge {
+    background-color: var(--rust);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: var(--space-1) var(--space-3);
+    text-transform: uppercase;
+}
+
+.plan__price {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.plan__features {
+    margin: var(--space-3) 0 var(--space-4);
+}
+
+.plan__features li {
+    padding: var(--space-1) 0;
+}
