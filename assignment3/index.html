@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport: without it, phones zoom out and media queries / the grid do not work -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 - Altai Brothers Base Camp</title>
+
+    <!-- 1. Bootstrap CSS first -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- 2. My own styles after it, so they can override Bootstrap -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===================== NAVBAR (Bootstrap) ===================== -->
+    <!-- navbar-expand-lg: full menu from 992px, a menu button below that -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-green sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">Altai Brothers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu"
+                    aria-controls="mainMenu" aria-expanded="false" aria-label="Open menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tours">Tours</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO (Bootstrap) ===================== -->
+    <header id="home" class="bg-cream py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-12 col-md-6 text-center text-md-start">
+                    <h1 class="display-5 fw-bold">Altai Brothers Base Camp</h1>
+                    <p class="lead my-3">Discover a quiet corner of western Mongolia and live the nomadic life with a local Kazakh family.</p>
+                    <a href="#tours" class="btn btn-rust btn-lg me-2">See tours</a>
+                    <!-- shown ONLY on a phone (hidden from 768px) -->
+                    <a href="tel:+97699112233" class="btn btn-outline-dark btn-lg d-md-none mt-2 mt-sm-0">Call us</a>
+                </div>
+                <!-- hidden on a phone, shown from 768px -->
+                <div class="col-md-6 d-none d-md-block">
+                    <img src="images/Jamaat.jpg" class="img-fluid rounded shadow photo" alt="Remote valley in the Altai mountains">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================== ABOUT (Bootstrap, 2 columns + order) ===================== -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <!-- Text is more important: first on a phone (order-1), moves to the right from 768px -->
+                <div class="col-12 col-md-7 order-1 order-md-2">
+                    <h2>Who we are</h2>
+                    <p>Yamaat is a remote place in the far west of Mongolia where Kazakh nomadic families have lived for centuries. Clear rivers, dense forests and wild animals surround the summer camps.</p>
+                    <p class="mb-0">Our family-run agency welcomes small groups who want to experience this landscape respectfully: no mobile signal, no electricity, only the steppe and the stars.</p>
+                </div>
+                <!-- Image second on a phone, on the left from 768px -->
+                <div class="col-12 col-md-5 order-2 order-md-1">
+                    <img src="images/books1.jpg" class="img-fluid rounded shadow photo" alt="Travel books used to plan a journey to the Altai">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICES (Task 1: my own CSS only, NO Bootstrap classes) ===================== -->
+    <section id="services" class="services">
+        <div class="services__inner">
+            <h2 class="services__title">What we offer</h2>
+            <p class="services__intro">Everything you need for a trip to the western valleys.</p>
+
+            <div class="services__grid">
+                <article class="service">
+                    <span class="service__icon">&#9978;</span>
+                    <h3>Yurt stays</h3>
+                    <p>Sleep in a traditional white Kazakh yurt next to a nomadic family.</p>
+                </article>
+                <article class="service">
+                    <span class="service__icon">&#128014;</span>
+                    <h3>Horse riding</h3>
+                    <p>Ride calm Mongolian horses along rivers and old nomadic routes.</p>
+                </article>
+                <article class="service">
+                    <span class="service__icon">&#129413;</span>
+                    <h3>Eagle hunters</h3>
+                    <p>Meet local eagle hunters and learn about their centuries-old tradition.</p>
+                </article>
+                <article class="service">
+                    <span class="service__icon">&#9968;</span>
+                    <h3>Mountain hikes</h3>
+                    <p>Guided day hikes to lakes and viewpoints high in the Altai.</p>
+                </article>
+                <article class="service">
+                    <span class="service__icon">&#127858;</span>
+                    <h3>Local food</h3>
+                    <p>Home-cooked meals: fresh bread, dairy and meat dishes of the steppe.</p>
+                </article>
+                <article class="service">
+                    <span class="service__icon">&#128663;</span>
+                    <h3>Transfers</h3>
+                    <p>Pick-up from Ulgii airport and safe 4x4 transport to the camp.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TOURS (Bootstrap cards: 1 / 2 / 3 per row) ===================== -->
+    <section id="tours" class="py-5 bg-cream">
+        <div class="container">
+            <h2 class="text-center mb-4">Our tours</h2>
+            <!-- row-cols-*: 1 card per row on a phone, 2 from 768px, 3 from 992px -->
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Weekend in the valley</h3>
+                            <p class="card-text">Two nights in a yurt, a short ride and an evening by the fire.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">3 days</span><span class="badge bg-rust">$290</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">River and forest trail</h3>
+                            <p class="card-text">Follow the clear rivers through larch forests on horseback.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">5 days</span><span class="badge bg-rust">$480</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Eagle festival tour</h3>
+                            <p class="card-text">Visit the autumn eagle festival and stay with a hunter's family.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">6 days</span><span class="badge bg-rust">$620</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Nomad migration</h3>
+                            <p class="card-text">Move with a family and their herds to the summer pastures.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">7 days</span><span class="badge bg-rust">$700</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Altai lakes trek</h3>
+                            <p class="card-text">A walking trip between three mountain lakes with a local guide.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">8 days</span><span class="badge bg-rust">$820</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Full western Mongolia</h3>
+                            <p class="card-text">The complete journey: valleys, lakes, eagle hunters and the steppe.</p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">12 days</span><span class="badge bg-rust">$1150</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ (Bootstrap accordion) ===================== -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <h2 class="text-center mb-4">Questions</h2>
+                    <div class="accordion" id="faqList">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">
+                                    When is the best time to visit?
+                                </button>
+                            </h3>
+                            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqList">
+                                <div class="accordion-body">From June to September, when the families live in their summer camps.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">
+                                    Do I need riding experience?
+                                </button>
+                            </h3>
+                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                                <div class="accordion-body">No. Our horses are calm and a guide is always next to beginners.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">
+                                    Is there mobile signal at the camp?
+                                </button>
+                            </h3>
+                            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqList">
+                                <div class="accordion-body">No, and there is no electricity either. We carry a satellite phone for emergencies.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT (Bootstrap grid + form) ===================== -->
+    <section id="contact" class="py-5 bg-cream">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Form is more important: first everywhere, wide on desktop -->
+                <div class="col-12 col-lg-8">
+                    <h2>Book your trip</h2>
+                    <form class="row g-3">
+                        <div class="col-12 col-sm-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" rows="4" class="form-control"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-rust">Send</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="p-4 bg-white rounded shadow-sm h-100">
+                        <h3 class="h5">Contact details</h3>
+                        <p class="mb-1">Ulgii, Bayan-Ulgii, Mongolia</p>
+                        <p class="mb-1">+976 9911 2233</p>
+                        <p class="mb-0">info@altaibrothers.mn</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-green text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 Byerdikhajy Yesyentai &middot; <a href="../index.html" class="text-white">All assignments</a></p>
+    </footer>
+
+    <!-- Bootstrap JS bundle: makes the navbar button and the accordion work -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
