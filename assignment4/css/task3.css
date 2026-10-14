@@ -1,0 +1,15 @@
+fieldset legend {
+    float: none;
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+
+.form-control:user-invalid,
+.form-select:user-invalid,
+.form-check-input:user-invalid {
+    border-color: #dc3545;
+}
+
+.form-check-input:user-invalid ~ .form-check-label {
+    color: #dc3545;
+}

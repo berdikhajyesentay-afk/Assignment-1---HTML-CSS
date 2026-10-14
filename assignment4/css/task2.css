@@ -1,0 +1,32 @@
+.experience legend {
+    float: none;
+    width: auto;
+    margin-bottom: 0.5rem;
+}
+
+.form-control:user-invalid,
+.form-select:user-invalid {
+    border-color: #dc3545;
+    background-color: #fff6f7;
+}
+
+.form-control:user-valid,
+.form-select:user-valid {
+    border-color: #198754;
+}
+
+.form-control:user-invalid ~ .invalid-feedback,
+.form-select:user-invalid ~ .invalid-feedback,
+.form-check-input:user-invalid ~ .invalid-feedback,
+.experience:has(.form-check-input:user-invalid) .invalid-feedback {
+    display: block;
+}
+
+.form-check-input:user-invalid {
+    border-color: #dc3545;
+}
+
+.form-check-input:user-invalid ~ .form-check-label,
+.experience:has(.form-check-input:user-invalid) legend {
+    color: #dc3545;
+}

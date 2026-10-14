@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - AITU Hack 2026 Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/task2.css">
+</head>
+<body>
+    <nav class="top-nav py-2">
+        <div class="container d-flex flex-wrap gap-2">
+            <a href="index.html">Assignment 4</a>
+            <a href="task1.html">Task 1</a>
+            <a href="task2.html" class="active" aria-current="page">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </div>
+    </nav>
+
+    <main class="container py-4 py-md-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-9">
+                <div class="form-card">
+                    <div class="form-card__head">
+                        <h1>AITU Hack 2026 registration</h1>
+                        <p class="mb-0 mt-1 small">20-22 November 2026 · Fields marked with * are required</p>
+                    </div>
+
+                    <form class="form-card__body">
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="fullName" class="form-label">Full name *</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName"
+                                       required minlength="2" maxlength="40" autocomplete="name">
+                                <div class="invalid-feedback">Enter your name, 2 to 40 characters.</div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label">University email *</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                       required autocomplete="email" placeholder="name@astanait.edu.kz">
+                                <div class="invalid-feedback">Enter a full email address, for example name@astanait.edu.kz.</div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <label for="age" class="form-label">Age *</label>
+                                <input type="number" class="form-control" id="age" name="age"
+                                       required min="16" max="30" step="1">
+                                <div class="invalid-feedback">A whole number from 16 to 30.</div>
+                            </div>
+
+                            <div class="col-6 col-md-3">
+                                <label for="teamSize" class="form-label">Team size *</label>
+                                <input type="number" class="form-control" id="teamSize" name="teamSize"
+                                       required min="1" max="4" step="1">
+                                <div class="invalid-feedback">A whole number from 1 to 4.</div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="track" class="form-label">Track *</label>
+                                <select class="form-select" id="track" name="track" required>
+                                    <option value="">Choose...</option>
+                                    <option value="web">Web</option>
+                                    <option value="mobile">Mobile</option>
+                                    <option value="ai">AI</option>
+                                    <option value="gamedev">GameDev</option>
+                                </select>
+                                <div class="invalid-feedback">Choose one of the four tracks.</div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="arrival" class="form-label">Arrival day *</label>
+                                <input type="date" class="form-control" id="arrival" name="arrival"
+                                       required min="2026-11-20" max="2026-11-22">
+                                <div class="invalid-feedback">Choose a day from 20 to 22 November 2026.</div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="checkin" class="form-label">Check-in time *</label>
+                                <input type="time" class="form-control" id="checkin" name="checkin"
+                                       required min="09:00" max="18:00" step="1800">
+                                <div class="invalid-feedback">From 09:00 to 18:00, on the hour or half past.</div>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="fee" class="form-label">Entry fee, ₸ *</label>
+                                <input type="number" class="form-control" id="fee" name="fee"
+                                       required min="0" max="5000" step="500">
+                                <div class="invalid-feedback">From 0 to 5000 ₸, in steps of 500.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <fieldset class="experience">
+                                    <legend class="form-label">Experience level *</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="level" id="levelBeginner" value="beginner" required>
+                                        <label class="form-check-label" for="levelBeginner">Beginner</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="level" id="levelMiddle" value="intermediate">
+                                        <label class="form-check-label" for="levelMiddle">Intermediate</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="level" id="levelAdvanced" value="advanced">
+                                        <label class="form-check-label" for="levelAdvanced">Advanced</label>
+                                    </div>
+                                    <div class="invalid-feedback">Choose your experience level.</div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="github" class="form-label">GitHub profile</label>
+                                <input type="url" class="form-control" id="github" name="github"
+                                       placeholder="https://github.com/username">
+                                <div class="invalid-feedback">Paste the full link, starting with https://</div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="password" class="form-label">Password *</label>
+                                <input type="password" class="form-control" id="password" name="password"
+                                       required minlength="8" maxlength="20" autocomplete="new-password">
+                                <div class="invalid-feedback">8 to 20 characters.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="motivation" class="form-label">Motivation *</label>
+                                <textarea class="form-control" id="motivation" name="motivation" rows="4"
+                                          required minlength="50" maxlength="300"
+                                          placeholder="Why do you want to join AITU Hack?"></textarea>
+                                <div class="invalid-feedback">Write 50 to 300 characters.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rules" name="rules" required>
+                                    <label class="form-check-label" for="rules">I agree with the hackathon rules *</label>
+                                    <div class="invalid-feedback">You need to agree with the rules.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 d-grid d-md-flex justify-content-md-end">
+                                <button type="submit" class="btn btn-amber">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

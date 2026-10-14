@@ -1,0 +1,141 @@
+:root {
+    --teal: #0f6b5f;
+    --amber: #f2a93b;
+    --ink: #16302b;
+    --field: #f4f7f5;
+    --page: #e6efec;
+}
+
+body {
+    background-color: var(--page);
+    color: var(--ink);
+    font-family: "Montserrat", Arial, sans-serif;
+}
+
+.top-nav {
+    background-color: #fff;
+    border-bottom: 1px solid #d5e2de;
+}
+
+.top-nav a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+}
+
+.top-nav a:hover,
+.top-nav a:focus-visible {
+    background-color: var(--field);
+}
+
+.top-nav a.active {
+    background-color: var(--teal);
+    color: #fff;
+}
+
+.form-card {
+    background-color: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 32px rgba(22, 48, 43, 0.12);
+    overflow: hidden;
+}
+
+.form-card__head {
+    background-color: var(--teal);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+}
+
+.form-card__head h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.form-card__body {
+    padding: 1.5rem;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--field);
+    border-color: #dbe5e1;
+    border-radius: 0.6rem;
+    color: var(--ink);
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.2);
+}
+
+.form-check-input:checked {
+    background-color: var(--teal);
+    border-color: var(--teal);
+}
+
+.btn-amber {
+    background-color: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.55rem 1.5rem;
+}
+
+.btn-amber:hover,
+.btn-amber:focus-visible {
+    background-color: #e0962a;
+    border-color: #e0962a;
+    color: var(--ink);
+}
+
+.task-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    border-top: 5px solid var(--teal);
+    box-shadow: 0 6px 18px rgba(22, 48, 43, 0.1);
+    color: var(--ink);
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.task-card:hover,
+.task-card:focus-visible {
+    transform: translateY(-4px);
+    color: var(--ink);
+}
+
+.task-card__num {
+    display: inline-block;
+    background-color: var(--amber);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.15rem 0.7rem;
+    margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .form-card__head {
+        padding: 1.5rem 2rem;
+    }
+
+    .form-card__head h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-card__body {
+        padding: 2rem;
+    }
+}

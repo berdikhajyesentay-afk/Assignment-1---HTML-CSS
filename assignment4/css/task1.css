@@ -1,0 +1,105 @@
+.form-card__body fieldset legend {
+    float: none;
+    width: auto;
+    margin-bottom: 0.4rem;
+}
+
+.trip-toggle {
+    width: 100%;
+}
+
+.trip-toggle .btn {
+    flex: 1;
+    border: 1.5px solid var(--teal);
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.45rem 1.25rem;
+    white-space: nowrap;
+}
+
+.trip-toggle .btn:first-of-type {
+    border-radius: 999px 0 0 999px;
+}
+
+.trip-toggle .btn:last-of-type {
+    border-radius: 0 999px 999px 0;
+}
+
+.trip-toggle .btn-check:checked + .btn {
+    background-color: var(--teal);
+    color: #fff;
+}
+
+.trip-toggle .btn-check:focus-visible + .btn {
+    box-shadow: 0 0 0 0.2rem rgba(15, 107, 95, 0.3);
+}
+
+.form-floating > .form-control {
+    height: 3.6rem;
+    min-height: 3.6rem;
+    padding-top: 1.6rem;
+    padding-bottom: 0.4rem;
+}
+
+.form-floating > .form-control::placeholder {
+    color: #4f6661;
+}
+
+.form-floating > label {
+    color: #7c8f8a;
+    font-size: 0.8rem;
+    transform: scale(1) translateY(-0.55rem);
+    padding-left: 1rem;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    color: var(--teal);
+    transform: scale(1) translateY(-0.55rem);
+}
+
+.form-floating > .form-control:focus ~ label::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label::after {
+    background-color: transparent;
+}
+
+.input-group-text {
+    background-color: var(--teal);
+    border-color: var(--teal);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 0.6rem 0 0 0.6rem;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--teal);
+    border-color: var(--teal);
+}
+
+.btn-clear {
+    background-color: #fff;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 0.55rem 1.5rem;
+}
+
+.btn-clear:hover,
+.btn-clear:focus-visible {
+    background-color: var(--field);
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+@media (min-width: 768px) {
+    .trip-toggle {
+        width: auto;
+    }
+
+    .btn-clear,
+    .btn-amber {
+        padding: 0.65rem 2rem;
+    }
+}
