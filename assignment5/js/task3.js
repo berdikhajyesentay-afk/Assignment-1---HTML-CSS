@@ -4,10 +4,10 @@ const SKILL_MAX = 10;
 const takenNames = ["Merlin", "Arthas", "Zelda", "Batyr", "Aldar"];
 
 const CLASSES = [
-    { id: "warrior", name: "Warrior", skill: "strength", min: 5 },
-    { id: "mage", name: "Mage", skill: "magic", min: 5 },
-    { id: "rogue", name: "Rogue", skill: "agility", min: 5 },
-    { id: "healer", name: "Healer", skill: "magic", min: 4 }
+    { id: "warrior", name: "Warrior", skill: "strength", min: 6 },
+    { id: "mage", name: "Mage", skill: "magic", min: 6 },
+    { id: "rogue", name: "Rogue", skill: "agility", min: 6 },
+    { id: "guardian", name: "Guardian", skill: "defense", min: 6 }
 ];
 
 const SKILLS = [
@@ -104,11 +104,17 @@ function classError() {
     }
     const heroClass = findClass(classSelect.value);
     const value = skillValue(heroClass.skill);
+    const mainSkill = SKILLS.find(function (item) {
+        return item.id === heroClass.skill;
+    });
     if (value < heroClass.min) {
-        const skill = SKILLS.find(function (item) {
-            return item.id === heroClass.skill;
-        });
-        return "A " + heroClass.name + " needs " + skill.name + " " + heroClass.min + " or more (now " + value + ").";
+        return "A " + heroClass.name + " needs " + mainSkill.name + " " + heroClass.min + " or more (now " + value + ").";
+    }
+    for (const skill of SKILLS) {
+        if (skillValue(skill.id) > value) {
+            return "For a " + heroClass.name + ", " + mainSkill.name + " must be the highest skill, but " +
+                skill.name + " is higher (" + skillValue(skill.id) + ").";
+        }
     }
     return "";
 }
@@ -313,7 +319,7 @@ function clearErrors() {
 }
 
 rulesText.textContent = "Spend exactly " + POINTS_TOTAL + " skill points, each skill from 1 to " + SKILL_MAX +
-    ". Every class needs a minimum in its main skill. A name can be used only once.";
+    ". Every class needs a minimum in its main skill, and the main skill must be the highest. A name can be used only once.";
 
 form.noValidate = true;
 
@@ -342,32 +348,33 @@ for (const input of colorInputs) {
 }
 
 for (const skill of SKILLS) {
+    getSkillInput(skill.id).max = SKILL_MAX;
     getSkillInput(skill.id).addEventListener("blur", function () {
         touch(skill.id);
         checkTouched();
     });
 }
 
-form.addEventListener("input", function () {
-    updatePreview();
-    checkTouched();
-});
-
-form.addEventListener("change", function () {
-    updatePreview();
-    checkTouched();
-});
-
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    touch("name");
-    touch("heroClass");
-    touch("color");
-    for (const skill of SKILLS) {
-        touch(skill.id);
+function updateSummary(count) {
+    if (count === 0) {
+        errorSummary.textContent = "";
+    } else if (count === 1) {
+        errorSummary.textContent = "There is 1 error in the form. Fix it to create your character.";
+    } else {
+        errorSummary.textContent = "There are " + count + " errors in the form. Fix them to create your character.";
     }
+}
 
+function onFormChange() {
+    updatePreview();
+    if (errorSummary.textContent === "") {
+        checkTouched();
+    } else {
+        updateSummary(findProblems().length);
+    }
+}
+
+function findProblems() {
     const problems = [];
     if (checkName() !== "") {
         problems.push(nameInput);
@@ -387,13 +394,25 @@ form.addEventListener("submit", function (event) {
     if (skillMessages[SKILLS.length] !== "") {
         problems.push(getSkillInput(SKILLS[0].id));
     }
+    return problems;
+}
 
+form.addEventListener("input", onFormChange);
+form.addEventListener("change", onFormChange);
+
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    touch("name");
+    touch("heroClass");
+    touch("color");
+    for (const skill of SKILLS) {
+        touch(skill.id);
+    }
+
+    const problems = findProblems();
+    updateSummary(problems.length);
     if (problems.length > 0) {
-        if (problems.length === 1) {
-            errorSummary.textContent = "There is 1 error in the form. Fix it to create your character.";
-        } else {
-            errorSummary.textContent = "There are " + problems.length + " errors in the form. Fix them to create your character.";
-        }
         problems[0].focus();
         return;
     }
