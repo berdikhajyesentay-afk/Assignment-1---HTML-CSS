@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3 - Character creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/task3.css">
+    <script src="js/task3.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="top-nav__links">
+            <a href="index.html">Assignment 5</a>
+            <a href="task1.html">Task 1</a>
+            <a href="task2.html">Task 2</a>
+            <a href="task3.html" class="active" aria-current="page">Task 3</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Character creator</h1>
+        <p class="intro" id="rules"></p>
+
+        <div class="creator">
+            <form class="card hero-form" id="hero-form">
+                <p class="message message--error" id="error-summary" role="alert"></p>
+
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="16" autocomplete="off" aria-describedby="name-error">
+                    <p class="field__error" id="name-error"></p>
+                </div>
+
+                <div class="field">
+                    <label for="hero-class">Class</label>
+                    <select id="hero-class" name="heroClass" required aria-describedby="hero-class-error">
+                        <option value="">Choose a class</option>
+                        <option value="warrior">Warrior</option>
+                        <option value="mage">Mage</option>
+                        <option value="rogue">Rogue</option>
+                        <option value="healer">Healer</option>
+                    </select>
+                    <p class="field__error" id="hero-class-error"></p>
+                </div>
+
+                <fieldset class="field colors" aria-describedby="color-error">
+                    <legend>Color</legend>
+                    <div class="colors__list">
+                        <label class="swatch swatch--red"><input type="radio" name="color" value="red" required> Red</label>
+                        <label class="swatch swatch--blue"><input type="radio" name="color" value="blue"> Blue</label>
+                        <label class="swatch swatch--green"><input type="radio" name="color" value="green"> Green</label>
+                        <label class="swatch swatch--purple"><input type="radio" name="color" value="purple"> Purple</label>
+                    </div>
+                    <p class="field__error" id="color-error"></p>
+                </fieldset>
+
+                <fieldset class="field skills" aria-describedby="total-error">
+                    <legend>Skills</legend>
+                    <p class="points" id="points-left"></p>
+                    <div class="skills__list">
+                        <div class="skill">
+                            <label for="strength">Strength</label>
+                            <input type="number" id="strength" name="strength" required min="1" max="10" step="1" aria-describedby="strength-error">
+                            <p class="field__error" id="strength-error"></p>
+                        </div>
+                        <div class="skill">
+                            <label for="magic">Magic</label>
+                            <input type="number" id="magic" name="magic" required min="1" max="10" step="1" aria-describedby="magic-error">
+                            <p class="field__error" id="magic-error"></p>
+                        </div>
+                        <div class="skill">
+                            <label for="agility">Agility</label>
+                            <input type="number" id="agility" name="agility" required min="1" max="10" step="1" aria-describedby="agility-error">
+                            <p class="field__error" id="agility-error"></p>
+                        </div>
+                        <div class="skill">
+                            <label for="defense">Defense</label>
+                            <input type="number" id="defense" name="defense" required min="1" max="10" step="1" aria-describedby="defense-error">
+                            <p class="field__error" id="defense-error"></p>
+                        </div>
+                    </div>
+                    <p class="field__error" id="total-error"></p>
+                </fieldset>
+
+                <button class="btn btn--amber" type="submit">Create character</button>
+            </form>
+
+            <aside class="preview" aria-label="Live preview">
+                <h2>Preview</h2>
+                <article class="hero-card" id="preview-card">
+                    <h3 class="hero-card__name" id="preview-name">Your hero</h3>
+                    <p class="hero-card__class" id="preview-class">No class yet</p>
+                    <ul class="hero-card__skills" id="preview-skills"></ul>
+                </article>
+            </aside>
+        </div>
+
+        <section class="results" aria-labelledby="results-title">
+            <h2 id="results-title" tabindex="-1">Created characters</h2>
+            <p class="results__empty" id="results-empty">No characters yet.</p>
+            <div class="results__list" id="results"></div>
+        </section>
+    </main>
+</body>
+</html>

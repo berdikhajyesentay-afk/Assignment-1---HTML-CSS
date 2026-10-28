@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Higher or Lower</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/task1.css">
+    <script src="js/task1.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="top-nav__links">
+            <a href="index.html">Assignment 5</a>
+            <a href="task1.html" class="active" aria-current="page">Task 1</a>
+            <a href="task2.html">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Higher or Lower</h1>
+        <p class="intro" id="rules"></p>
+
+        <section class="card game" id="game" aria-label="Game">
+            <div class="stats">
+                <p class="stat">Lives <span class="stat__value" id="lives"></span></p>
+                <p class="stat">Streak <span class="stat__value" id="streak"></span></p>
+                <p class="stat">Best streak <span class="stat__value" id="best"></span></p>
+            </div>
+
+            <div class="numbers">
+                <div class="number number--before">
+                    <span class="number__label">Before</span>
+                    <span class="number__value" id="before"></span>
+                </div>
+                <div class="number number--now" id="now-box">
+                    <span class="number__label">Now</span>
+                    <span class="number__value" id="now"></span>
+                </div>
+            </div>
+
+            <p class="message" id="message" role="status" aria-live="polite"></p>
+
+            <div class="controls">
+                <button class="btn btn--teal" type="button" id="higher">Higher</button>
+                <button class="btn btn--teal" type="button" id="lower">Lower</button>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn--amber" type="button" id="restart">New game</button>
+            </div>
+
+            <p class="hint">Keyboard: H or the up arrow for Higher, L or the down arrow for Lower, N for a new game.</p>
+        </section>
+    </main>
+</body>
+</html>

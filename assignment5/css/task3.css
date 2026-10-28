@@ -1,0 +1,258 @@
+.creator {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.hero-form {
+    display: grid;
+    gap: 1.1rem;
+    min-width: 0;
+}
+
+.field {
+    display: grid;
+    gap: 0.3rem;
+    min-width: 0;
+}
+
+fieldset.field {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.field label,
+.field legend {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0;
+}
+
+.field input[type="text"],
+.field input[type="number"],
+.field select {
+    font: inherit;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--line);
+    border-radius: 0.6rem;
+    background-color: var(--field);
+    color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus {
+    border-color: var(--teal);
+}
+
+.field [aria-invalid="true"] {
+    border-color: var(--red);
+    background-color: var(--red-soft);
+}
+
+.field input[aria-invalid="false"],
+.field select[aria-invalid="false"] {
+    border-color: var(--green);
+}
+
+.field__error {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--red);
+}
+
+.field__error:empty {
+    display: none;
+}
+
+.colors__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.swatch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.8rem 0.35rem 0.6rem;
+    border-radius: 999px;
+    border: 2px solid var(--line);
+    cursor: pointer;
+}
+
+.swatch:hover {
+    border-color: var(--ink);
+}
+
+.swatch:has(input:checked) {
+    border-color: var(--ink);
+    background-color: var(--field);
+}
+
+.swatch:has(input:focus-visible) {
+    outline: 3px solid var(--amber);
+    outline-offset: 2px;
+}
+
+.swatch::before {
+    content: "";
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    order: 2;
+}
+
+.swatch--red::before {
+    background-color: #c0392b;
+}
+
+.swatch--blue::before {
+    background-color: #2463b4;
+}
+
+.swatch--green::before {
+    background-color: #1e7d4f;
+}
+
+.swatch--purple::before {
+    background-color: #7a3fb0;
+}
+
+.swatch input {
+    accent-color: var(--teal);
+    margin: 0;
+}
+
+.points {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--teal-dark);
+}
+
+.points--done {
+    color: var(--green);
+}
+
+.points--over {
+    color: var(--red);
+}
+
+.skills__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.skill {
+    display: grid;
+    gap: 0.3rem;
+    align-content: start;
+}
+
+.preview h2 {
+    font-size: 1rem;
+}
+
+.hero-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    border-top: 8px solid var(--line);
+    box-shadow: 0 8px 22px rgba(22, 48, 43, 0.12);
+    padding: 1rem 1.25rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.hero--red {
+    border-top-color: #c0392b;
+}
+
+.hero--blue {
+    border-top-color: #2463b4;
+}
+
+.hero--green {
+    border-top-color: #1e7d4f;
+}
+
+.hero--purple {
+    border-top-color: #7a3fb0;
+}
+
+.hero-card__name {
+    margin: 0;
+    font-size: 1.2rem;
+    overflow-wrap: anywhere;
+}
+
+.hero-card__class {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.hero-card__skills {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+}
+
+.skill-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.skill-row progress {
+    width: 100%;
+    accent-color: var(--teal);
+}
+
+.results {
+    margin-top: 2rem;
+}
+
+.results h2:focus {
+    outline: none;
+}
+
+.results h2:focus-visible {
+    outline: 3px solid var(--amber);
+}
+
+.results__empty {
+    color: var(--muted);
+    margin: 0;
+}
+
+.results__list {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .creator {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .preview {
+        position: sticky;
+        top: 1rem;
+    }
+
+    .skills__list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .results__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - Study planner board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/task2.css">
+    <script src="js/task2.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="top-nav__links">
+            <a href="index.html">Assignment 5</a>
+            <a href="task1.html">Task 1</a>
+            <a href="task2.html" class="active" aria-current="page">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </div>
+    </nav>
+
+    <main class="page">
+        <h1>Study planner board</h1>
+        <p class="intro" id="rules"></p>
+
+        <section class="card toolbar" aria-label="Search, filter and sort">
+            <div class="toolbar__field">
+                <label for="search">Search</label>
+                <input type="search" id="search" placeholder="Card title">
+            </div>
+            <div class="toolbar__field">
+                <label for="tag-filter">Tag</label>
+                <select id="tag-filter">
+                    <option value="all">All tags</option>
+                </select>
+            </div>
+            <div class="toolbar__field">
+                <label for="sort">Sort</label>
+                <select id="sort">
+                    <option value="none">As added</option>
+                    <option value="high">Priority: high first</option>
+                    <option value="low">Priority: low first</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="card summary" id="summary" aria-label="Progress"></section>
+
+        <p class="message" id="notice" role="status" aria-live="polite"></p>
+
+        <div class="board" id="board"></div>
+    </main>
+</body>
+</html>
