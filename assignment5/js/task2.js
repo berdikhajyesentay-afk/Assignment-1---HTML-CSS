@@ -242,13 +242,16 @@ function moveCard(id, action) {
     card.status = target.id;
     showNotice("\"" + card.title + "\" moved to " + target.title + ".", "success");
     render();
+    focusButton(id, action);
+}
 
-    const sameButton = board.querySelector("button[data-id=\"" + id + "\"][data-action=\"" + action + "\"]:not(:disabled)");
-    const otherButton = board.querySelector("button[data-id=\"" + id + "\"]:not(:disabled)");
-    if (sameButton) {
+function focusButton(id, action) {
+    const sameButton = board.querySelector("button[data-id='" + id + "'][data-action='" + action + "']:not(:disabled)");
+    const anyButton = board.querySelector("button[data-id='" + id + "']:not(:disabled)");
+    if (sameButton !== null) {
         sameButton.focus();
-    } else if (otherButton) {
-        otherButton.focus();
+    } else if (anyButton !== null) {
+        anyButton.focus();
     }
 }
 

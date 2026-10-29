@@ -48,11 +48,7 @@ function getSkillInput(id) {
 }
 
 function skillValue(id) {
-    const value = Number(getSkillInput(id).value);
-    if (Number.isNaN(value)) {
-        return 0;
-    }
-    return value;
+    return Number(getSkillInput(id).value);
 }
 
 function skillTotal() {
@@ -183,32 +179,21 @@ function checkColor() {
     return message;
 }
 
-function checkSkills() {
-    const messages = [];
-    let anyTouched = false;
-    for (const skill of SKILLS) {
-        let message = "";
-        if (touched.includes(skill.id)) {
-            anyTouched = true;
-            message = skillError(skill.id);
+function checkSkill(id) {
+    const message = skillError(id);
+    showFieldError([getSkillInput(id)], id + "-error", message);
+    return message;
+}
+
+function checkTotal() {
+    const message = totalErrorText();
+    totalError.textContent = message;
+    if (message !== "") {
+        for (const skill of SKILLS) {
+            getSkillInput(skill.id).setAttribute("aria-invalid", "true");
         }
-        document.querySelector("#" + skill.id + "-error").textContent = message;
-        messages.push(message);
     }
-
-    let total = "";
-    if (anyTouched) {
-        total = totalErrorText();
-    }
-    totalError.textContent = total;
-
-    for (let i = 0; i < SKILLS.length; i++) {
-        const invalid = messages[i] !== "" || (total !== "" && touched.includes(SKILLS[i].id));
-        getSkillInput(SKILLS[i].id).setAttribute("aria-invalid", invalid ? "true" : "false");
-    }
-
-    messages.push(total);
-    return messages;
+    return message;
 }
 
 function checkTouched() {
@@ -221,7 +206,17 @@ function checkTouched() {
     if (touched.includes("color")) {
         checkColor();
     }
-    checkSkills();
+    let allSkillsTouched = true;
+    for (const skill of SKILLS) {
+        if (touched.includes(skill.id)) {
+            checkSkill(skill.id);
+        } else {
+            allSkillsTouched = false;
+        }
+    }
+    if (allSkillsTouched) {
+        checkTotal();
+    }
 }
 
 function touch(key) {
@@ -271,7 +266,7 @@ function createSkillRow(skill, value) {
 
     const bar = document.createElement("progress");
     bar.max = SKILL_MAX;
-    bar.value = Math.min(Math.max(value, 0), SKILL_MAX);
+    bar.value = value;
     bar.setAttribute("aria-label", skill.name);
 
     row.append(label, bar);
@@ -318,6 +313,47 @@ function clearErrors() {
     errorSummary.textContent = "";
 }
 
+function findProblems() {
+    const problems = [];
+    if (checkName() !== "") {
+        problems.push(nameInput);
+    }
+    if (checkClass() !== "") {
+        problems.push(classSelect);
+    }
+    if (checkColor() !== "") {
+        problems.push(colorInputs[0]);
+    }
+    for (const skill of SKILLS) {
+        if (checkSkill(skill.id) !== "") {
+            problems.push(getSkillInput(skill.id));
+        }
+    }
+    if (checkTotal() !== "") {
+        problems.push(getSkillInput(SKILLS[0].id));
+    }
+    return problems;
+}
+
+function updateSummary(count) {
+    if (count === 0) {
+        errorSummary.textContent = "";
+    } else if (count === 1) {
+        errorSummary.textContent = "There is 1 error in the form. Fix it to create your character.";
+    } else {
+        errorSummary.textContent = "There are " + count + " errors in the form. Fix them to create your character.";
+    }
+}
+
+function onFormChange() {
+    updatePreview();
+    if (errorSummary.textContent === "") {
+        checkTouched();
+    } else {
+        updateSummary(findProblems().length);
+    }
+}
+
 rulesText.textContent = "Spend exactly " + POINTS_TOTAL + " skill points, each skill from 1 to " + SKILL_MAX +
     ". Every class needs a minimum in its main skill, and the main skill must be the highest. A name can be used only once.";
 
@@ -353,48 +389,6 @@ for (const skill of SKILLS) {
         touch(skill.id);
         checkTouched();
     });
-}
-
-function updateSummary(count) {
-    if (count === 0) {
-        errorSummary.textContent = "";
-    } else if (count === 1) {
-        errorSummary.textContent = "There is 1 error in the form. Fix it to create your character.";
-    } else {
-        errorSummary.textContent = "There are " + count + " errors in the form. Fix them to create your character.";
-    }
-}
-
-function onFormChange() {
-    updatePreview();
-    if (errorSummary.textContent === "") {
-        checkTouched();
-    } else {
-        updateSummary(findProblems().length);
-    }
-}
-
-function findProblems() {
-    const problems = [];
-    if (checkName() !== "") {
-        problems.push(nameInput);
-    }
-    if (checkClass() !== "") {
-        problems.push(classSelect);
-    }
-    if (checkColor() !== "") {
-        problems.push(colorInputs[0]);
-    }
-    const skillMessages = checkSkills();
-    for (let i = 0; i < SKILLS.length; i++) {
-        if (skillMessages[i] !== "") {
-            problems.push(getSkillInput(SKILLS[i].id));
-        }
-    }
-    if (skillMessages[SKILLS.length] !== "") {
-        problems.push(getSkillInput(SKILLS[0].id));
-    }
-    return problems;
 }
 
 form.addEventListener("input", onFormChange);
