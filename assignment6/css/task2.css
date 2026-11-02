@@ -1,0 +1,106 @@
+.cases-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.cases-card__head h2 {
+    margin: 0;
+}
+
+.guest {
+    cursor: pointer;
+}
+
+.guest:hover .guest__avatar {
+    box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--teal);
+}
+
+.sort-btn {
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.7rem;
+    margin-bottom: 0.5rem;
+    border: 1.5px solid var(--teal);
+    border-radius: 999px;
+    background-color: #fff;
+    color: var(--teal);
+    cursor: pointer;
+}
+
+.sort-btn:hover {
+    background-color: var(--teal-soft);
+}
+
+.sort-btn[aria-pressed="true"] {
+    background-color: var(--teal);
+    color: #fff;
+}
+
+/* the guest that flies to another room */
+.guest--flying {
+    position: absolute;
+    z-index: 20;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* the place that opens in the new room */
+.slot {
+    width: 0;
+    margin: 0 3px 8px;
+}
+
+/* the guest card */
+.info {
+    position: absolute;
+    z-index: 30;
+    overflow: hidden;
+    background-color: #fff;
+    border: 3px solid var(--teal);
+    border-radius: 1rem;
+    box-shadow: 0 16px 40px rgba(22, 48, 43, 0.3);
+}
+
+.info__inner {
+    padding: 1rem;
+    text-align: center;
+}
+
+.info__avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background-color: #eef1f4;
+}
+
+.info__name {
+    margin: 0.25rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.info__facts {
+    list-style: none;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.info__facts li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.info__moves {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.info__move {
+    font-size: 0.85rem;
+    padding: 0.35rem 1rem;
+}

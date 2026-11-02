@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2 - The Party in Motion</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/party.css">
+    <link rel="stylesheet" href="css/task2.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="js/task2.js" defer></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="top-nav__links">
+            <a href="index.html">Assignment 6</a>
+            <a href="task1.html">Task 1</a>
+            <a href="task2.html" class="active" aria-current="page">Task 2</a>
+        </div>
+    </nav>
+
+    <main class="page page--wide">
+        <h1>The Party in Motion</h1>
+        <p class="intro">Click a case to light up what it finds. Click a guest to open their card, move them to another room, or sort a room by arrival time. Esc or a click outside closes the card.</p>
+
+        <section class="card cases-card" aria-label="Cases">
+            <div class="cases-card__head">
+                <h2>Cases</h2>
+                <button class="btn btn--amber" type="button" id="clear">Clear</button>
+            </div>
+            <div class="cases" id="cases"></div>
+        </section>
+
+        <div class="stage" id="stage">
+            <section class="result" id="result" aria-live="polite">
+                <p class="result__title" id="result-title">Click a case to start.</p>
+                <pre class="result__chain" id="result-chain"></pre>
+                <p class="result__found" id="result-found"></p>
+            </section>
+
+            <div class="house">
+                <div class="roof">
+                    <p class="roof__sign">The Party, 19:30 - 22:30</p>
+                </div>
+                <div class="house__floors" id="house"></div>
+                <div class="ground"></div>
+            </div>
+
+            <ul class="legend">
+                <li><span class="dot dot--red"></span><span class="dot dot--blue"></span><span class="dot dot--green"></span><span class="dot dot--black"></span><span class="dot dot--yellow"></span><span class="dot dot--purple"></span> Clothing color</li>
+                <li>📱 Phone</li>
+                <li>👓 Glasses</li>
+                <li>👜 Bag</li>
+                <li>☕ Cup</li>
+                <li>🍰 Cake crumbs</li>
+                <li>🕒 Arrival time</li>
+                <li><span class="legend__badge">🎓</span> AITU student</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>

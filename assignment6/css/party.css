@@ -1,0 +1,341 @@
+:root {
+    --wall: #4a2c1f;
+    --roof: #8a4b2f;
+    --room: #fffdf8;
+    --ring-red: #d64545;
+    --ring-blue: #3a6fd8;
+    --ring-green: #2e8b57;
+    --ring-black: #2b2b2b;
+    --ring-yellow: #e3a21a;
+    --ring-purple: #8e4fc9;
+    --badge: #1f4e8c;
+}
+
+.page--wide {
+    max-width: 1280px;
+}
+
+/* cases */
+.cases-card {
+    margin-bottom: 1.25rem;
+}
+
+.cases {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.case-btn {
+    font: inherit;
+    font-size: 0.85rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    border: 1.5px solid var(--line);
+    border-radius: 0.75rem;
+    background-color: #fff;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.case-btn:hover {
+    background-color: var(--field);
+}
+
+.case-btn__num {
+    flex: 0 0 auto;
+    display: inline-grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background-color: var(--teal-soft);
+    color: var(--teal);
+    font-weight: 700;
+}
+
+.case-btn--active {
+    border-color: var(--teal);
+    background-color: var(--teal-soft);
+}
+
+.case-btn--active .case-btn__num {
+    background-color: var(--teal);
+    color: #fff;
+}
+
+/* result */
+.stage {
+    background-color: var(--page);
+    padding-top: 0.25rem;
+}
+
+.result {
+    background-color: #fff;
+    border-left: 5px solid var(--amber);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.result__title {
+    margin: 0;
+    font-weight: 700;
+}
+
+.result__chain {
+    margin: 0.5rem 0 0;
+    padding: 0.5rem 0.75rem;
+    background-color: #1f2a28;
+    color: #e8f3ef;
+    border-radius: 0.5rem;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.result__chain:empty {
+    display: none;
+}
+
+.result__found {
+    margin: 0.5rem 0 0;
+    font-weight: 600;
+    color: var(--teal);
+}
+
+.result__found:empty {
+    display: none;
+}
+
+/* house */
+.house {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.roof {
+    position: relative;
+    height: 90px;
+    background-color: var(--roof);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    display: grid;
+    place-items: end center;
+    padding-bottom: 12px;
+}
+
+.roof__sign {
+    margin: 0;
+    background-color: #fff;
+    border: 2px solid var(--wall);
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+    font-weight: 700;
+}
+
+.house__floors {
+    background-color: var(--wall);
+    padding: 8px;
+    display: grid;
+    gap: 8px;
+}
+
+.floor {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 8px;
+}
+
+.floor__label {
+    margin: 0;
+    background-color: #e8d9c8;
+    color: var(--wall);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+}
+
+.floor__rooms {
+    display: grid;
+    gap: 8px;
+}
+
+.room {
+    background-color: var(--room);
+    padding: 0.6rem 0.75rem 0.25rem;
+    min-height: 190px;
+}
+
+#balcony {
+    background-color: #eaf1f8;
+}
+
+#hall {
+    background-color: #fdf9f2;
+}
+
+.room.found {
+    outline: 4px solid var(--amber);
+    outline-offset: -4px;
+}
+
+.room__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.room__name {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.guests {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.guest {
+    position: relative;
+    width: 84px;
+    margin: 0 3px 8px;
+}
+
+.guest__body {
+    padding: 0.4rem 0.1rem 0.3rem;
+    border-radius: 0.75rem;
+    text-align: center;
+}
+
+.guest.found .guest__body {
+    background-color: #fff1c7;
+    box-shadow: 0 0 0 2px var(--amber);
+}
+
+.guest__photo {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+}
+
+.guest__avatar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid var(--ring-black);
+    background-color: #eef1f4;
+}
+
+.guest[data-color="red"] .guest__avatar { border-color: var(--ring-red); }
+.guest[data-color="blue"] .guest__avatar { border-color: var(--ring-blue); }
+.guest[data-color="green"] .guest__avatar { border-color: var(--ring-green); }
+.guest[data-color="black"] .guest__avatar { border-color: var(--ring-black); }
+.guest[data-color="yellow"] .guest__avatar { border-color: var(--ring-yellow); }
+.guest[data-color="purple"] .guest__avatar { border-color: var(--ring-purple); }
+
+.guest__badge,
+.legend__badge {
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--badge);
+    background-color: #dfe9fb;
+    font-size: 12px;
+}
+
+.guest__badge {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+}
+
+.guest__name {
+    margin: 0.2rem 0 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.guest__time {
+    margin: 0;
+    font-size: 0.72rem;
+    color: var(--muted);
+}
+
+.guest__things {
+    margin: 0.2rem 0 0;
+    min-height: 1.3rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    font-size: 0.75rem;
+}
+
+.guest__things span {
+    background-color: #eef1f4;
+    border-radius: 0.3rem;
+    padding: 0 2px;
+}
+
+.ground {
+    height: 14px;
+    background-color: #7fb35a;
+    border-radius: 999px;
+}
+
+/* legend */
+.legend {
+    list-style: none;
+    margin: 0.75rem auto 0;
+    padding: 0.6rem 1rem;
+    max-width: 1240px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    margin-right: 1px;
+}
+
+.dot--red { background-color: var(--ring-red); }
+.dot--blue { background-color: var(--ring-blue); }
+.dot--green { background-color: var(--ring-green); }
+.dot--black { background-color: var(--ring-black); }
+.dot--yellow { background-color: var(--ring-yellow); }
+.dot--purple { background-color: var(--ring-purple); }
+
+@media (min-width: 640px) {
+    .cases {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 980px) {
+    .cases {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .floor__rooms {
+        grid-template-columns: 1fr 1fr;
+    }
+}
